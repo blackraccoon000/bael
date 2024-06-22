@@ -5,6 +5,7 @@ export default defineController(() => ({
     status: 200,
     body: {
       hello: "goodbye",
+      message: "Goodbye, World!",
     },
   }),
 }));
