@@ -19,3 +19,8 @@ bash:
 # コンテナが起動している前提、mysqlに入る
 mysql:
 	docker-compose exec -it db bash -c "mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD}"
+
+# ghコマンドが必要
+# 現在のリポジトリを開く
+br:
+	gh browse
