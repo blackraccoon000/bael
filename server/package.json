@@ -1,0 +1,26 @@
+{
+  "name": "bael-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node -r tsconfig-paths/register index.ts",
+    "frourio:watch": "frourio --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@types/node": "^20.14.7",
+    "fastify": "^4.28.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "aspida": "^1.14.0",
+    "frourio": "^1.0.1",
+    "tsconfig-paths": "^4.2.0"
+  }
+}
