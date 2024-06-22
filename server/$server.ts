@@ -6,6 +6,8 @@ import type { z } from 'zod';
 import controllerFn_1qxyj9s from 'api/controller';
 import controllerFn_eo70wc from 'api/goodbye/controller';
 import controllerFn_1c8eilo from 'api/hi/controller';
+import controllerFn_inhe2j from 'api/post/controller';
+import controllerFn_175xwuk from 'api/user/controller';
 import type { FastifyInstance, RouteHandlerMethod, preValidationHookHandler, onRequestHookHandler, preParsingHookHandler, preHandlerHookHandler } from 'fastify';
 
 export type FrourioOptions = {
@@ -98,17 +100,35 @@ const methodToHandler = (
   reply.code(data.status).send(data.body);
 };
 
+const asyncMethodToHandler = (
+  methodCallback: ServerHandlerPromise<any, any>,
+): RouteHandlerMethod => async (req, reply) => {
+  const data = await methodCallback(req as any) as any;
+
+  if (data.headers !== undefined) reply.headers(data.headers);
+
+  reply.code(data.status).send(data.body);
+};
+
 export default (fastify: FastifyInstance, options: FrourioOptions = {}) => {
   const basePath = options.basePath ?? '';
   const controller_1qxyj9s = controllerFn_1qxyj9s(fastify);
   const controller_eo70wc = controllerFn_eo70wc(fastify);
   const controller_1c8eilo = controllerFn_1c8eilo(fastify);
+  const controller_inhe2j = controllerFn_inhe2j(fastify);
+  const controller_175xwuk = controllerFn_175xwuk(fastify);
 
   fastify.get(basePath || '/', methodToHandler(controller_1qxyj9s.get));
 
   fastify.get(`${basePath}/goodbye`, methodToHandler(controller_eo70wc.get));
 
   fastify.get(`${basePath}/hi`, methodToHandler(controller_1c8eilo.get));
+
+  fastify.get(`${basePath}/post`, methodToHandler(controller_inhe2j.get));
+
+  fastify.get(`${basePath}/user`, methodToHandler(controller_175xwuk.get));
+
+  fastify.post(`${basePath}/user`, asyncMethodToHandler(controller_175xwuk.post));
 
   return fastify;
 };
