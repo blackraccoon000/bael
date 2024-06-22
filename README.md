@@ -22,3 +22,17 @@ SECRET=
 ```
 
 SECRET は`openssl rand -base64 32`で生成する
+
+### MySQL の設定
+
+- .env.tmp を複製し、.env を生成
+- デフォルトだと root ユーザのパスワードは root
+- 下記を MySQL から設定
+
+```
+grant all privileges on bael.* to "user"@"%";
+grant CREATE, ALTER, DROP ON *.* TO 'user'@'%';
+flush privileges;
+```
+
+- `make mysql/root`を実行し、prisma のマイグレーションを起動できるように設定する
