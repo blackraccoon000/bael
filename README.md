@@ -3,7 +3,7 @@ Next.js の e-commerce サイトを作成してみようというお試し作品
 ### 使用技術
 
 - Next.js の AppRouter
-- Next_Auth による実装
+- NextAuth による実装
 - バックエンドとの連携 frourio
 
 ### コマンド関連
