@@ -1,0 +1,12 @@
+model Project {
+  id        Int      @id @default(autoincrement())
+  name      String
+  userId    Int
+  user      User     @relation("UserProjects",fields: [userId], references: [id])
+  works Work[]
+  authorId  Int
+  author    User     @relation("UserAuthorProjects",fields: [authorId], references: [id])
+  disabled  Boolean @default(false)
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}

@@ -30,8 +30,9 @@ SECRET は`openssl rand -base64 32`で生成する
 - 下記を MySQL から設定
 
 ```
+show grants for "user"@"%";
 grant all privileges on bael.* to "user"@"%";
-grant CREATE, ALTER, DROP ON *.* TO 'user'@'%';
+grant CREATE, ALTER, DROP, REFERENCES ON *.* TO 'user'@'%';
 flush privileges;
 ```
 
