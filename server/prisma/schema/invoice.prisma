@@ -1,0 +1,10 @@
+model Invoice {
+  id        Int      @id @default(autoincrement())
+  workId    Int
+  works Work[]
+  payment   Int
+  received  Boolean @default(false)
+  disabled  Boolean @default(false)
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}

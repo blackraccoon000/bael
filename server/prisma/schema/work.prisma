@@ -1,0 +1,25 @@
+model Work {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  project   Project  @relation(fields: [projectId], references: [id])
+  date      DateTime
+  time      Int
+  workDetails WorkDetail[]
+  invoiceId Int
+  invoice Invoice @relation(fields: [invoiceId], references: [id])
+  payment   Int
+  approval　Boolean
+  disabled  Boolean @default(false)
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}
+
+model WorkDetail {
+  id        Int      @id @default(autoincrement())
+  workId    Int
+  work      Work     @relation(fields: [workId], references: [id])
+  comment   String
+  disabled  Boolean @default(false)
+  createdAt DateTime @default(now())
+  updateAt DateTime @default(now())
+}
