@@ -8,7 +8,9 @@
     "dev": "run-p dev:*",
     "dev:start": "ts-node -r tsconfig-paths/register index.ts",
     "dev:frourio-watch": "frourio --watch",
-    "frourio:watch": "frourio --watch"
+    "frourio:watch": "frourio --watch",
+    "prisma:migrate": "prisma migrate dev",
+    "studio": "prisma studio"
   },
   "author": "",
   "license": "ISC",

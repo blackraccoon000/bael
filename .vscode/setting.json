@@ -1,0 +1,127 @@
+{
+  "explorer.confirmDragAndDrop": false,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.excludeLanguages": ["markdown"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/public/css"
+    }
+  ],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "telemetry.telemetryLevel": "off",
+  "git.autofetch": true,
+  "editor.tabCompletion": "on",
+  "emmet.triggerExpansionOnTab": true,
+  "editor.wordWrap": "on",
+  "editor.suggestSelection": "first",
+  "tabnine.experimentalAutoImports": true,
+  "editor.fontFamily": "Source Han Code JP",
+  "editor.fontLigatures": true,
+  "workbench.startupEditor": "none",
+  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.fontWeightBold": "normal",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vetur.dev.vlsPath": "~/.config/yarn/global/node_modules/vls/",
+  "vetur.validation.templateProps": true,
+  "vetur.completion.autoImport": false,
+  "vetur.languageFeatures.semanticTokens": false,
+  "vetur.validation.interpolation": false,
+  "vetur.useWorkspaceDependencies": true,
+  "vetur.experimental.templateInterpolationService": true,
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.fontSize": 16,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "prettier.enable": true,
+  "editor.codeActionsOnSave": {},
+  "workbench.colorCustomizations": {},
+  "cSpell.languageSettings": [],
+  "liveSassCompile.settings.includeItems": [],
+  "prettier.bracketSpacing": false,
+  "intelephense.diagnostics.undefinedClassConstants": false,
+  "intelephense.diagnostics.undefinedConstants": false,
+  "intelephense.diagnostics.undefinedFunctions": false,
+  "intelephense.diagnostics.undefinedMethods": false,
+  "intelephense.diagnostics.undefinedTypes": false,
+  "remote.autoForwardPorts": false,
+  "prettier.enableDebugLogs": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "redhat.telemetry.enabled": false,
+  "git.openRepositoryInParentFolders": "never",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "remote.extensionKind": {
+    "pub.name": ["ui"]
+  },
+  "extensions.supportUntrustedWorkspaces": {},
+  "workbench.settings.applyToAllProfiles": [],
+  "editor.fontSize": 13,
+  "accessibility.signals.lineHasError": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasFoldedArea": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasBreakpoint": {
+    "sound": "off"
+  },
+  "accessibility.signals.lineHasInlineSuggestion": {
+    "sound": "off"
+  },
+  "accessibility.signals.onDebugBreak": {
+    "sound": "off"
+  },
+  "accessibility.signals.noInlayHints": {
+    "sound": "off"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "terminal.external.osxExec": "Warp.app",
+  "explorer.confirmDelete": false,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "search.showLineNumbers": true,
+  "notebook.lineNumbers": "on",
+  "liveshare.accessibility.accessibilityFeaturesEnabled": "off",
+  "accessibility.signalOptions": {
+    "volume": 0
+  },
+  "accessibility.signals.progress": {
+    "sound": "off"
+  },
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "terminal.integrated.bellStyle": "none"
+}
