@@ -1,10 +1,13 @@
 include .env
 
-# mysqlの起動
+build:
+	docker-compose up --build
+
+# mysql/minioの起動
 start:
 	docker-compose up -d
 
-# mysqlの停止
+# mysql/minioの停止
 stop:
 	docker-compose down
 
@@ -13,8 +16,12 @@ ps:
 	docker ps
 
 # コンテナが起動している前提、mysqlが起動しているbashに入る
-bash:
+db/bash:
 	docker-compose exec -it db bash
+
+# コンテナが起動している前提、mysqlが起動しているbashに入る
+minio/bash:
+	docker-compose exec -it minio bash
 
 # コンテナが起動している前提、mysqlに入る
 mysql:
