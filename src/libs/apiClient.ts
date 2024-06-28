@@ -3,7 +3,7 @@ import aspida from "@aspida/fetch";
 
 const apiClient = api(
   aspida(undefined, {
-    baseURL: "http://localhost:8888",
+    baseURL: process.env.SERVER_URI,
   })
 );
 

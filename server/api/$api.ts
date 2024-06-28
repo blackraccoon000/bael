@@ -6,7 +6,7 @@ import type { Methods as Methods_mdeh7w } from './post';
 import type { Methods as Methods_tli9od } from './user';
 
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
-  const prefix = (baseURL === undefined ? 'http://localhost:8888' : baseURL).replace(/\/$/, '');
+  const prefix = (baseURL === undefined ? 'http://localhost:8888/' : baseURL).replace(/\/$/, '');
   const PATH0 = '/goodbye';
   const PATH1 = '/hi';
   const PATH2 = '/post';

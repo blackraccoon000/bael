@@ -5,6 +5,7 @@ import server from "./$server";
 
 const fastify = Fastify();
 
+// TODO: CORSの設定を追加する
 fastify.register(FastifyCors, {});
 
 server(fastify);
