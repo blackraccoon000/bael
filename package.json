@@ -15,6 +15,7 @@
   "dependencies": {
     "@aspida/fetch": "^1.14.0",
     "aspida": "^1.14.0",
+    "dotenv": "^16.4.5",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
     "react": "^18",
