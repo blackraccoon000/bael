@@ -1,16 +1,24 @@
+import {User} from "@prisma/client";
 import type {DefineMethods} from "aspida";
 
 export type Methods = DefineMethods<{
   get: {
-    resBody: string;
+    query: {
+      id: number;
+    };
+    resBody?: User;
   };
   post: {
-    resBody: {
-      message: string;
-      user: {
-        id: number;
-        name: string | null;
-      };
+    reqBody: Pick<User, "name" | "email" | "disabled">;
+    resBody: User;
+  };
+  patch: {
+    reqBody: Pick<User, "id" | "name" | "email" | "disabled">;
+    resBody: User;
+  };
+  delete: {
+    query: {
+      id: number;
     };
   };
 }>;

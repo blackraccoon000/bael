@@ -1,25 +1,16 @@
+// 作業内容に関するモデル
 model Work {
-  id        Int      @id @default(autoincrement())
-  projectId Int
-  project   Project  @relation(fields: [projectId], references: [id])
-  date      DateTime
-  time      Int
-  workDetails WorkDetail[]
-  invoiceId Int
-  invoice Invoice @relation(fields: [invoiceId], references: [id])
-  payment   Int
-  approval　Boolean
-  disabled  Boolean @default(false)
-  createdAt DateTime @default(now())
-  updateAt DateTime @default(now())
-}
-
-model WorkDetail {
-  id        Int      @id @default(autoincrement())
-  workId    Int
-  work      Work     @relation(fields: [workId], references: [id])
-  comment   String
-  disabled  Boolean @default(false)
-  createdAt DateTime @default(now())
-  updateAt DateTime @default(now())
+  id        Int      @id @default(autoincrement()) // 作業ID
+  date      DateTime // 作業日
+  time      Int // 作業時間
+  userId    Int // ユーザID
+  user User @relation(fields: [userId], references: [id]) // ユーザ情報
+  invoiceId Int // 請求ID
+  invoice Invoice @relation(fields: [invoiceId], references: [id]) // 請求情報
+  payment   Int     @default(0) // 支払い金額
+  approval　Boolean @default(false) // 承認フラグ
+  comment   String? // コメント
+  disabled  Boolean @default(false) // 無効フラグ
+  createdAt DateTime @default(now()) // 作成日
+  updateAt DateTime @default(now()) // 更新日
 }

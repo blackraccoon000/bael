@@ -15,12 +15,14 @@
   "dependencies": {
     "@aspida/fetch": "^1.14.0",
     "aspida": "^1.14.0",
+    "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",

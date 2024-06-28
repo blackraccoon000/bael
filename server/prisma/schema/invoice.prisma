@@ -1,6 +1,6 @@
+// 請求情報
 model Invoice {
-  id        Int      @id @default(autoincrement())
-  workId    Int
+  id        Int      @id @default(autoincrement()) // 請求ID
   works Work[]
   payment   Int
   received  Boolean @default(false)
