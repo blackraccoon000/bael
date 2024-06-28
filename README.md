@@ -32,7 +32,7 @@ SECRET は`openssl rand -base64 32`で生成する
 ```
 show grants for "user"@"%";
 grant all privileges on bael.* to "user"@"%";
-grant CREATE, ALTER, DROP, REFERENCES ON *.* TO 'user'@'%';
+grant CREATE, ALTER, DROP, REFERENCES, INDEX ON *.* TO 'user'@'%';
 flush privileges;
 ```
 

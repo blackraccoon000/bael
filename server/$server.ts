@@ -8,6 +8,7 @@ import controllerFn_eo70wc from 'api/goodbye/controller';
 import controllerFn_1c8eilo from 'api/hi/controller';
 import controllerFn_inhe2j from 'api/post/controller';
 import controllerFn_175xwuk from 'api/user/controller';
+import controllerFn_1xegfg1 from 'api/users/controller';
 import type { FastifyInstance, RouteHandlerMethod, preValidationHookHandler, onRequestHookHandler, preParsingHookHandler, preHandlerHookHandler } from 'fastify';
 
 export type FrourioOptions = {
@@ -90,6 +91,42 @@ export type ServerMethodHandler<T extends AspidaMethodParams,  U extends Record<
   handler: ServerHandler<T, U> | ServerHandlerPromise<T, U>;
 };
 
+const parseNumberTypeQueryParams = (numberTypeParams: [string, boolean, boolean][]): preValidationHookHandler => (req, reply, done) => {
+  const query: any = req.query;
+
+  for (const [key, isOptional, isArray] of numberTypeParams) {
+    const param = isArray ? (query[`${key}[]`] ?? query[key]) : query[key];
+
+    if (isArray) {
+      if (!isOptional && param === undefined) {
+        query[key] = [];
+      } else if (!isOptional || param !== undefined) {
+        const vals = (Array.isArray(param) ? param : [param]).map(Number);
+
+        if (vals.some(isNaN)) {
+          reply.code(400).send();
+          return;
+        }
+
+        query[key] = vals as any;
+      }
+
+      delete query[`${key}[]`];
+    } else if (!isOptional || param !== undefined) {
+      const val = Number(param);
+
+      if (isNaN(val)) {
+        reply.code(400).send();
+        return;
+      }
+
+      query[key] = val as any;
+    }
+  }
+
+  done();
+};
+
 const methodToHandler = (
   methodCallback: ServerHandler<any, any>,
 ): RouteHandlerMethod => (req, reply) => {
@@ -117,6 +154,7 @@ export default (fastify: FastifyInstance, options: FrourioOptions = {}) => {
   const controller_1c8eilo = controllerFn_1c8eilo(fastify);
   const controller_inhe2j = controllerFn_inhe2j(fastify);
   const controller_175xwuk = controllerFn_175xwuk(fastify);
+  const controller_1xegfg1 = controllerFn_1xegfg1(fastify);
 
   fastify.get(basePath || '/', methodToHandler(controller_1qxyj9s.get));
 
@@ -126,9 +164,33 @@ export default (fastify: FastifyInstance, options: FrourioOptions = {}) => {
 
   fastify.get(`${basePath}/post`, methodToHandler(controller_inhe2j.get));
 
-  fastify.get(`${basePath}/user`, methodToHandler(controller_175xwuk.get));
+  fastify.get(
+    `${basePath}/user`,
+    {
+      preValidation: parseNumberTypeQueryParams([['id', false, false]]),
+    },
+    asyncMethodToHandler(controller_175xwuk.get),
+  );
 
   fastify.post(`${basePath}/user`, asyncMethodToHandler(controller_175xwuk.post));
+
+  fastify.patch(`${basePath}/user`, asyncMethodToHandler(controller_175xwuk.patch));
+
+  fastify.delete(
+    `${basePath}/user`,
+    {
+      preValidation: parseNumberTypeQueryParams([['id', false, false]]),
+    },
+    asyncMethodToHandler(controller_175xwuk.delete),
+  );
+
+  fastify.get(
+    `${basePath}/users`,
+    {
+      preValidation: parseNumberTypeQueryParams([['page', true, false], ['perPage', true, false]]),
+    },
+    asyncMethodToHandler(controller_1xegfg1.get),
+  );
 
   return fastify;
 };
